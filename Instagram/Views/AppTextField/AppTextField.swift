@@ -101,12 +101,11 @@ import UIKit
   override init(frame: CGRect) {
     super.init(frame: frame)
     initSubviews()
-    setupView(placeholder: placeholder, backgroundColor: _backgroundColor, leftImage: leftIcon, showClearButton: nil, showImage: showIcon)
   }
   
   override func layoutSubviews() {
     self.backgroundColor = UIColor.black
-    
+    setupView(placeholder: placeholder, backgroundColor: _backgroundColor, leftImage: leftIcon, showClearButton: nil, showImage: showIcon)
   }
   
   func initSubviews() {
@@ -124,9 +123,6 @@ import UIKit
     if imageView.image == nil {
       imageContainer.isHidden = true
     }
-//    clearButton.isHidden = clearButton.imageView?.image == nil
-//    showButton.isHidden = !appTextField.isSecureTextEntry
-//    showButton.tintColor = appTextField.isSecureTextEntry ? UIColor.lightGray : UIColor.systemBlue
   }
   
   private func loadViewFromNib() -> UIView {
@@ -151,5 +147,14 @@ extension AppTextField: UITextFieldDelegate {
   func textFieldDidChangeSelection(_ textField: UITextField) {
     print("start typing")
     print("isPasswordType -->> \(appTextField.isSecureTextEntry)")
+  }
+}
+
+extension AppTextField {
+  public func setOutline(cornerRadius: Double, borderWidth: Double, borderColor: CGColor) {
+    layer.cornerRadius = cornerRadius
+    layer.borderWidth = borderWidth
+    layer.borderColor = borderColor
+    layer.masksToBounds = true
   }
 }

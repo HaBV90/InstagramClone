@@ -30,7 +30,7 @@ class NotificationCell: UITableViewCell {
     avatarImage.layer.cornerRadius = avatarImage.frame.height / 2
     avatarImage.clipsToBounds = true
     avatarImage.contentMode = .scaleAspectFill
-    avatarImage.image = avatarImage.image?.imageWithInsets(UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+//    avatarImage.image = avatarImage.image?.imageWithInsets(UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
   }
   
   @IBAction func onPressedFollow(_ sender: UIButton) {

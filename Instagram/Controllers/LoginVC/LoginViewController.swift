@@ -14,33 +14,60 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var usernameView: AppTextField!
   @IBOutlet weak var passwordView: AppTextField!
+  @IBOutlet weak var forgotPasswordBtn: UIButton!
+  @IBOutlet var textView: UITextView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    loginButton.setImage(UIImage(systemName: "person"), for: .normal)
-    usernameView.contentView.layer.borderWidth = 1
-    usernameView.contentView.layer.borderColor = UIColor.red.cgColor
-    usernameView.contentView.layer.cornerRadius = 8
-    usernameView.contentView.clipsToBounds = true
+    self.textView.delegate = self
     
-    //    passwordView.backgroundColor = .systemBackground
-    //    passwordView.placeholder = "password"
-    //    passwordView.image = UIImage(systemName: "lock")
-    //    passwordView.contentView.layer.borderWidth = 1
-    //    passwordView.contentView.layer.borderColor = UIColor.red.cgColor
-    //    passwordView.contentView.layer.cornerRadius = 8
-    //    passwordView.contentView.clipsToBounds = true
-    //    passwordView.setPasswordType = true
-    //    passwordView.showButton.setImage(UIImage(systemName: "eye"), for: .normal)
-    //    passwordView.appTextField.backgroundColor = UIColor.lightGray
+    usernameView.placeholder = "Username"
+    usernameView.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
     
+    passwordView.placeholder = "Password"
+    passwordView.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
+    passwordView.setPasswordType = true
+    passwordView.showButton.setImage(UIImage(systemName: "eye"), for: .normal)
+    
+    loginButton.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: loginButton.tintColor.cgColor)
+    //    loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+    
+    let mutableAttributedString = NSMutableAttributedString(string: "Don't have an account? Sign Up.")
+    mutableAttributedString.setAsLink(textToFind: "Sign Up.", linkName: "signUp")
+    textView.attributedText = mutableAttributedString
+    textView.textAlignment = .center
+    textView.font = UIFont.systemFont(ofSize: 14)
+    textView.alignTextVerticalBottomInContainer()
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    passwordView.setupView(placeholder: "Password", backgroundColor: nil, leftImage: UIImage(systemName: "lock"), showClearButton: nil, showImage: nil, isSecureTextEntry: true)
-
+    
   }
   
+  @IBAction func handleForgotPasswordPressed(_ sender: UIButton) {
+    print("Forgot password pressed")
+    let forgotVC = UIViewController(nibName: "ForgotPasswordViewController", bundle: nil)
+    self.navigationController?.pushViewController(forgotVC, animated: true)
+  }
+  
+  @IBAction func handleLoginPressed(_ sender: UIButton) {
+    let rootVC = TabBarViewController()
+    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
+  }
+  
+}
 
+extension LoginViewController:  UITextViewDelegate {
+  func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+    
+    if URL.absoluteString == "signUp" {
+      print("URL -->> \(URL)")
+      
+      let registerVC = UIViewController(nibName: "RegisterViewController", bundle: nil)
+      self.navigationController?.pushViewController(registerVC, animated: true)
+      //      return true
+    }
+    return false
+  }
 }

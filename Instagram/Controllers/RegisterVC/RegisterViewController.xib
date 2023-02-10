@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="Instagram" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="v86-dd-zXl" id="jqC-Ej-eDK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="v86-dd-zXl" userLabel="RegisterScreen">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Lxe-Gj-vqw">
+                    <rect key="frame" x="16" y="91" width="361" height="491"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbi-yR-xmb">
+                            <rect key="frame" x="121.33333333333334" y="0.0" width="118.66666666666666" height="411"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="3Yb-nn-tg9">
+                            <rect key="frame" x="148.66666666666666" y="427" width="64" height="64"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="64" id="MgL-de-ywU"/>
+                                <constraint firstAttribute="width" constant="64" id="XCV-G0-Rwa"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="3Yb-nn-tg9" firstAttribute="top" secondItem="fbi-yR-xmb" secondAttribute="bottom" constant="16" id="UT1-09-2LU"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-QD-jk4" userLabel="Field Stack View">
+                    <rect key="frame" x="16" y="630" width="361" height="116"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NN0-hh-l1r" customClass="AppTextField" customModule="Instagram" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="AnM-Pn-nTh"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ebl-8a-Bnq" customClass="AppTextField" customModule="Instagram" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="66" width="361" height="50"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="tkP-MN-YGb"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="253" translatesAutoresizingMaskIntoConstraints="NO" id="OyF-WW-4jS">
+                    <rect key="frame" x="16" y="762" width="361" height="56"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHc-EJ-oyi">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="56"/>
+                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="DIK-MG-uqM"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Register" cornerStyle="capsule" titleAlignment="center">
+                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="rQF-rw-JbL"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Lxe-Gj-vqw" firstAttribute="centerX" secondItem="v86-dd-zXl" secondAttribute="centerX" id="1lh-Ez-b0t"/>
+                <constraint firstItem="rQF-rw-JbL" firstAttribute="trailing" secondItem="OyF-WW-4jS" secondAttribute="trailing" constant="16" id="1xG-SG-kPd"/>
+                <constraint firstItem="OyF-WW-4jS" firstAttribute="leading" secondItem="rQF-rw-JbL" secondAttribute="leading" constant="16" id="8pv-51-vqo"/>
+                <constraint firstItem="rQF-rw-JbL" firstAttribute="trailing" secondItem="Qb1-QD-jk4" secondAttribute="trailing" constant="16" id="Hn0-mS-q66"/>
+                <constraint firstItem="Lxe-Gj-vqw" firstAttribute="leading" secondItem="rQF-rw-JbL" secondAttribute="leading" constant="16" id="Jq4-r6-CFr"/>
+                <constraint firstItem="Qb1-QD-jk4" firstAttribute="leading" secondItem="rQF-rw-JbL" secondAttribute="leading" constant="16" id="OAa-E7-pQJ"/>
+                <constraint firstItem="OyF-WW-4jS" firstAttribute="top" secondItem="Qb1-QD-jk4" secondAttribute="bottom" constant="16" id="RrP-u1-fas"/>
+                <constraint firstItem="rQF-rw-JbL" firstAttribute="trailing" secondItem="Lxe-Gj-vqw" secondAttribute="trailing" constant="16" id="Vnz-7a-dDZ"/>
+                <constraint firstItem="Lxe-Gj-vqw" firstAttribute="top" secondItem="rQF-rw-JbL" secondAttribute="top" constant="32" id="aGw-vQ-vpu"/>
+                <constraint firstItem="Qb1-QD-jk4" firstAttribute="top" secondItem="Lxe-Gj-vqw" secondAttribute="bottom" constant="48" id="d7P-ce-610"/>
+                <constraint firstItem="rQF-rw-JbL" firstAttribute="bottom" secondItem="OyF-WW-4jS" secondAttribute="bottom" id="k0N-u2-eKU"/>
+            </constraints>
+            <point key="canvasLocation" x="17.39130434782609" y="-11.383928571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Logo" width="240" height="240"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

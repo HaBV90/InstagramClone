@@ -34,6 +34,11 @@
 		89186A71298A1DA000B49190 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89186A70298A1DA000B49190 /* Notification.swift */; };
 		89186A76298A5B8D00B49190 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89186A74298A5B8D00B49190 /* LoginViewController.swift */; };
 		89186A77298A5B8D00B49190 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89186A75298A5B8D00B49190 /* LoginViewController.xib */; };
+		8918C9C82995F467009E6E82 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8918C9C72995F467009E6E82 /* TextView.swift */; };
+		8918C9CD29961BE9009E6E82 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8918C9CB29961BE9009E6E82 /* ForgotPasswordViewController.swift */; };
+		8918C9CE29961BE9009E6E82 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8918C9CC29961BE9009E6E82 /* ForgotPasswordViewController.xib */; };
+		8918C9D129961BF7009E6E82 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8918C9CF29961BF7009E6E82 /* RegisterViewController.swift */; };
+		8918C9D229961BF7009E6E82 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8918C9D029961BF7009E6E82 /* RegisterViewController.xib */; };
 		8924A42C299378420013AB27 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924A42B299378420013AB27 /* Helpers.swift */; };
 		8924A43729939A960013AB27 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924A43629939A960013AB27 /* Image.swift */; };
 		8946602E2992012000A97E8D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8946602D2992012000A97E8D /* NavigationController.swift */; };
@@ -93,6 +98,11 @@
 		89186A70298A1DA000B49190 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		89186A74298A5B8D00B49190 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		89186A75298A5B8D00B49190 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		8918C9C72995F467009E6E82 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		8918C9CB29961BE9009E6E82 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		8918C9CC29961BE9009E6E82 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		8918C9CF29961BF7009E6E82 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		8918C9D029961BF7009E6E82 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		8924A42B299378420013AB27 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8924A43629939A960013AB27 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8946602D2992012000A97E8D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -194,6 +204,8 @@
 		89186A462988CC8300B49190 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8918C9CA29961BCC009E6E82 /* ForgotVC */,
+				8918C9C929961BC3009E6E82 /* RegisterVC */,
 				89CD6699299256D100661A55 /* DetailVC */,
 				89186A412988CB5E00B49190 /* TabBarVC */,
 				89186A73298A5B7300B49190 /* LoginVC */,
@@ -264,6 +276,7 @@
 		89186A6A298A0DD500B49190 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8918C9C62995F452009E6E82 /* TextView */,
 				89CD669629924D5200661A55 /* CustomButton */,
 				898BFEE3298BC9D000051FB3 /* AppTextField */,
 				89186A6B298A0DDD00B49190 /* NotificationCell */,
@@ -295,6 +308,32 @@
 				89186A75298A5B8D00B49190 /* LoginViewController.xib */,
 			);
 			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		8918C9C62995F452009E6E82 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				8918C9C72995F467009E6E82 /* TextView.swift */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		8918C9C929961BC3009E6E82 /* RegisterVC */ = {
+			isa = PBXGroup;
+			children = (
+				8918C9CF29961BF7009E6E82 /* RegisterViewController.swift */,
+				8918C9D029961BF7009E6E82 /* RegisterViewController.xib */,
+			);
+			path = RegisterVC;
+			sourceTree = "<group>";
+		};
+		8918C9CA29961BCC009E6E82 /* ForgotVC */ = {
+			isa = PBXGroup;
+			children = (
+				8918C9CB29961BE9009E6E82 /* ForgotPasswordViewController.swift */,
+				8918C9CC29961BE9009E6E82 /* ForgotPasswordViewController.xib */,
+			);
+			path = ForgotVC;
 			sourceTree = "<group>";
 		};
 		8946602C299200FF00A97E8D /* Utils */ = {
@@ -439,6 +478,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8918C9CE29961BE9009E6E82 /* ForgotPasswordViewController.xib in Resources */,
 				89186A6F298A0E1800B49190 /* NotificationCell.xib in Resources */,
 				89186A1E2988CAEE00B49190 /* LaunchScreen.storyboard in Resources */,
 				89186A1B2988CAEE00B49190 /* Assets.xcassets in Resources */,
@@ -447,6 +487,7 @@
 				89186A5C2988CD6500B49190 /* ProfileViewController.xib in Resources */,
 				89186A4C2988CCBC00B49190 /* HomeViewController.xib in Resources */,
 				89CD669D299256E900661A55 /* DetailViewController.xib in Resources */,
+				8918C9D229961BF7009E6E82 /* RegisterViewController.xib in Resources */,
 				89186A572988CD5100B49190 /* MessagesViewController.xib in Resources */,
 				89186A612988EFF000B49190 /* SearchViewController.xib in Resources */,
 				89186A77298A5B8D00B49190 /* LoginViewController.xib in Resources */,
@@ -524,7 +565,9 @@
 			files = (
 				89186A76298A5B8D00B49190 /* LoginViewController.swift in Sources */,
 				8924A42C299378420013AB27 /* Helpers.swift in Sources */,
+				8918C9CD29961BE9009E6E82 /* ForgotPasswordViewController.swift in Sources */,
 				89186A602988EFF000B49190 /* SearchViewController.swift in Sources */,
+				8918C9C82995F467009E6E82 /* TextView.swift in Sources */,
 				89186A192988CAED00B49190 /* Instagram.xcdatamodeld in Sources */,
 				89186A662989051000B49190 /* HomeDetailViewController.swift in Sources */,
 				8946602E2992012000A97E8D /* NavigationController.swift in Sources */,
@@ -534,6 +577,7 @@
 				89186A6E298A0E1800B49190 /* NotificationCell.swift in Sources */,
 				89186A0F2988CAED00B49190 /* AppDelegate.swift in Sources */,
 				89CD669C299256E900661A55 /* DetailViewController.swift in Sources */,
+				8918C9D129961BF7009E6E82 /* RegisterViewController.swift in Sources */,
 				89186A112988CAED00B49190 /* SceneDelegate.swift in Sources */,
 				89186A71298A1DA000B49190 /* Notification.swift in Sources */,
 				89186A512988CD3200B49190 /* NotificationsViewController.swift in Sources */,

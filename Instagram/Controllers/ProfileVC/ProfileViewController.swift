@@ -8,28 +8,29 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+  var signOutButton = UIButton()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-    label.center = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
-    label.textAlignment = .center
-    label.text = "Profile Screen"
-    label.textColor = .systemBlue
     
-    self.view.addSubview(label)
+    signOutButton.setTitle("Log Out", for: .normal)
+    signOutButton.frame = CGRect(x: 16, y: 0, width: self.view.bounds.width - 32, height: 48)
+    signOutButton.setTitleColor(.white, for: .normal)
+    signOutButton.backgroundColor = .systemBlue
+    signOutButton.addTarget(self, action: #selector(handleLogOutPressed), for: .touchUpInside)
+    signOutButton.center = self.view.center
+    signOutButton.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: signOutButton.backgroundColor!.cgColor)
+    
+    self.view.addSubview(signOutButton)
   }
   
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  @objc func handleLogOutPressed(sender: UIButton!) {
+    print("log  out")
+    
+    let loginVC = LoginViewController()
+    let authNavigation = UINavigationController(rootViewController: loginVC)
+    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(authNavigation)
+  }
   
 }
