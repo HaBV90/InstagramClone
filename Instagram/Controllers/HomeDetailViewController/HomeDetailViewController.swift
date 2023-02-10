@@ -22,6 +22,7 @@ class HomeDetailViewController: UIViewController {
     label.text = "Detail Screen"
     label.textColor = .systemBlue
     self.view.addSubview(label)
+    
     button.setTitle("Push to Detail Screen", for: .normal)
     button.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
     button.setTitleColor(.white, for: .normal)
@@ -33,20 +34,13 @@ class HomeDetailViewController: UIViewController {
     
     // Change Background navigation bar
     navigationAppearance.configureWithDefaultBackground()
-    navigationAppearance.backgroundColor = .lightGray
+    navigationAppearance.backgroundColor = .systemBackground
     self.navigationItem.standardAppearance = navigationAppearance
     self.navigationItem.compactAppearance = navigationAppearance
     self.navigationItem.scrollEdgeAppearance = navigationAppearance
     // Set title text
     self.title = "Home Detail Screen"
-    // customize left button
-    let leftButton = CustomButton()
-    leftButton.setImage(UIImage(systemName: "arrowshape.backward"), for: .normal)
-    leftButton.setTitle("BACK", for: .normal)
-    leftButton.setTitleColor(.systemBlue, for: .normal)
-    leftButton.addTarget(self, action: #selector(popToPrevious), for: .touchUpInside)
-    leftButton.layer.backgroundColor = UIColor.systemPink.cgColor
-    self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+    navigationItem.backButtonTitle = ""
     // customize right button
     navigationItem.rightBarButtonItem = UIBarButtonItem(
       image: UIImage(systemName: "trash"),

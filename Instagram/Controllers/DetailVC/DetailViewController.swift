@@ -14,23 +14,16 @@ class DetailViewController: UIViewController {
     
     let label = UILabel()
     
-    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
-    label.center = self.view.center
-    label.textAlignment = .center
-    label.text = "Detail Screen"
-    label.textColor = .systemBlue
+//    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
+//    label.textAlignment = .center
+//    label.center = self.view.center
+//    label.text = "Detail Screen"
+//    label.textColor = .systemBlue
+//    label.backgroundColor = .cyan
     
     self.view.addSubview(label)
-    
-    self.navigationItem.hidesBackButton = true
-    self.navigationItem.leftBarButtonItem = UIBarButtonItem(
-      title: "Back",
-      style: .plain,
-      target: self,
-      action: #selector(backToVC)
-    )
-    navigationItem.leftBarButtonItem?.tintColor = .red
   }
+  
   @objc func backToVC() {
     self.navigationController?.backToVC(vc: HomeViewController.self)
   }
