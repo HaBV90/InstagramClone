@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target">
+            <connections>
+                <outlet property="loginButton" destination="9hY-jn-sGB" id="0ZU-ar-Jw8"/>
+                <outlet property="passwordView" destination="j51-wR-NRM" id="g6s-jQ-07i"/>
+                <outlet property="titleLabel" destination="kZF-5P-7bV" id="cbM-iv-bnI"/>
+                <outlet property="usernameView" destination="QTs-UM-Zlf" id="IZr-RA-qb1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="fbW-ug-ZZm"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" userLabel="LoginScreen">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-5P-7bV">
+                    <rect key="frame" x="155.5" y="96" width="103" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <color key="textColor" systemColor="systemRedColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hY-jn-sGB">
+                    <rect key="frame" x="16" y="337" width="382" height="48"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="jg2-9f-MvT"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Login">
+                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </buttonConfiguration>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTs-UM-Zlf" customClass="AppTextField" customModule="Instagram" customModuleProvider="target">
+                    <rect key="frame" x="16" y="173" width="382" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Knt-2P-yNf"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j51-wR-NRM" customClass="AppTextField" customModule="Instagram" customModuleProvider="target">
+                    <rect key="frame" x="16" y="239" width="382" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="e5D-9u-86V"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="QTs-UM-Zlf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="2MX-62-Lkh"/>
+                <constraint firstItem="j51-wR-NRM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MQV-fN-dv9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="j51-wR-NRM" secondAttribute="trailing" constant="16" id="Ss5-vH-OzS"/>
+                <constraint firstItem="kZF-5P-7bV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XCR-U1-Utb"/>
+                <constraint firstItem="j51-wR-NRM" firstAttribute="top" secondItem="QTs-UM-Zlf" secondAttribute="bottom" constant="16" id="b3n-px-bqP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9hY-jn-sGB" secondAttribute="trailing" constant="16" id="hAZ-rJ-7Uc"/>
+                <constraint firstItem="QTs-UM-Zlf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ihT-TX-kg7"/>
+                <constraint firstItem="9hY-jn-sGB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="lWW-XZ-jdT"/>
+                <constraint firstItem="j51-wR-NRM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="sVy-e8-n7P"/>
+                <constraint firstItem="QTs-UM-Zlf" firstAttribute="top" secondItem="kZF-5P-7bV" secondAttribute="bottom" constant="48" id="tpZ-PU-9Lz"/>
+                <constraint firstItem="kZF-5P-7bV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="48" id="xrO-kK-beP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QTs-UM-Zlf" secondAttribute="trailing" constant="16" id="yWu-jt-cfZ"/>
+                <constraint firstItem="9hY-jn-sGB" firstAttribute="top" secondItem="j51-wR-NRM" secondAttribute="bottom" constant="48" id="zbT-uC-9Ze"/>
+            </constraints>
+            <point key="canvasLocation" x="17.39130434782609" y="-11.383928571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
