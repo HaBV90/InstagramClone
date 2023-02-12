@@ -10,19 +10,240 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="iKc-hh-ESX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="hFf-U6-DTL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" userLabel="ProfileScreen">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoK-3B-QcD">
+                    <rect key="frame" x="16" y="64" width="382" height="814"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-d3-Ovu" userLabel="Main Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="1484"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdO-zg-4h9">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="200"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="5ZA-yu-Dpl">
+                                            <rect key="frame" x="131" y="16" width="120" height="120"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="ZKp-Pe-GI6"/>
+                                                <constraint firstAttribute="height" constant="120" id="shi-0M-Vex"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="abc@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DbN-V6-Lep">
+                                            <rect key="frame" x="32" y="152" width="318" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="hWz-l4-GJd"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="DbN-V6-Lep" secondAttribute="trailing" constant="32" id="BS8-Z4-Ywd"/>
+                                        <constraint firstItem="DbN-V6-Lep" firstAttribute="top" secondItem="5ZA-yu-Dpl" secondAttribute="bottom" constant="16" id="DoD-T8-AFt"/>
+                                        <constraint firstItem="5ZA-yu-Dpl" firstAttribute="top" secondItem="OdO-zg-4h9" secondAttribute="top" constant="16" id="EMJ-ZM-zrw"/>
+                                        <constraint firstAttribute="bottom" secondItem="DbN-V6-Lep" secondAttribute="bottom" constant="16" id="ayR-tU-Rcm"/>
+                                        <constraint firstItem="5ZA-yu-Dpl" firstAttribute="centerX" secondItem="OdO-zg-4h9" secondAttribute="centerX" id="e6n-Az-ooa"/>
+                                        <constraint firstItem="DbN-V6-Lep" firstAttribute="leading" secondItem="OdO-zg-4h9" secondAttribute="leading" constant="32" id="f0z-zW-gbA"/>
+                                    </constraints>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wuP-x5-tFV" userLabel="Field Stack View">
+                                    <rect key="frame" x="0.0" y="200" width="382" height="1284"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HMC-3X-TVu" userLabel="First Name Text Field">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="1xf-pf-oHM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2FP-8k-d5S" userLabel="Last Name Text Field">
+                                            <rect key="frame" x="0.0" y="68" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="HOX-ba-Q32"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-YO-PxI" userLabel="Email Text Field">
+                                            <rect key="frame" x="0.0" y="136" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="6Dt-rg-wPt"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Mr-bT-CNQ" userLabel="PhoneNumber Text Field">
+                                            <rect key="frame" x="0.0" y="204" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="uI8-tM-cdp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GVq-Ei-TcQ" userLabel="Address Text Field">
+                                            <rect key="frame" x="0.0" y="272" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="b36-Sn-wil"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZUm-7M-htT" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="340" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="pC9-TP-Qcp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULj-Qk-1OL" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="408" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="xL2-ew-ASn"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lfu-CS-oXC" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="476" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="v27-aV-EkG"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A78-rP-trH" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="544" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="X8M-R8-Jyb"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WdD-7A-7wA" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="612" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="iCr-Dh-pbB"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5a-Eu-aPt" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="680" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="b5e-KR-Yt9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2LN-Lx-p2A" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="748" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="YeW-GE-81X"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bia-x4-dYv" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="816" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="ROH-cV-GAf"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fdc-BY-skO" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="884" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="mzF-rV-RnR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zPH-lb-g9r" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="952" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="R79-fO-xUJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R0V-UG-20D" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="1020" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="Ajp-gC-FLs"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Q7-Je-afs" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="1088" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="3JV-W5-LOA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9iU-7o-gl5" userLabel="Birthday Text Field">
+                                            <rect key="frame" x="0.0" y="1156" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="pyg-iL-1wc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0M-HV-UNm">
+                                            <rect key="frame" x="0.0" y="1224" width="382" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="XUG-EV-XLI"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Log Out"/>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="OdO-zg-4h9" secondAttribute="trailing" id="3mV-Nr-IS3"/>
+                                <constraint firstItem="OdO-zg-4h9" firstAttribute="centerX" secondItem="Sob-d3-Ovu" secondAttribute="centerX" id="B3T-gc-83V"/>
+                                <constraint firstItem="OdO-zg-4h9" firstAttribute="leading" secondItem="Sob-d3-Ovu" secondAttribute="leading" id="fbX-K0-Wfz"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Sob-d3-Ovu" firstAttribute="width" secondItem="tVH-2h-bpn" secondAttribute="width" id="CK9-yI-gdJ"/>
+                        <constraint firstItem="Sob-d3-Ovu" firstAttribute="top" secondItem="E4c-9W-rIQ" secondAttribute="top" id="JNK-WE-D0A"/>
+                        <constraint firstItem="Sob-d3-Ovu" firstAttribute="bottom" secondItem="E4c-9W-rIQ" secondAttribute="bottom" id="Q0c-RO-AMY"/>
+                        <constraint firstItem="Sob-d3-Ovu" firstAttribute="trailing" secondItem="E4c-9W-rIQ" secondAttribute="trailing" id="faF-0h-KFX"/>
+                        <constraint firstItem="Sob-d3-Ovu" firstAttribute="leading" secondItem="E4c-9W-rIQ" secondAttribute="leading" id="mF6-zO-Dlf"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="E4c-9W-rIQ"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="tVH-2h-bpn"/>
+                </scrollView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="37" y="-11"/>
+            <constraints>
+                <constraint firstItem="aoK-3B-QcD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Pdt-7S-oOo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aoK-3B-QcD" secondAttribute="trailing" constant="16" id="VxX-0e-kOi"/>
+                <constraint firstItem="aoK-3B-QcD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="WqT-ES-aB8"/>
+                <constraint firstItem="aoK-3B-QcD" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Zxf-UL-tWL"/>
+                <constraint firstItem="aoK-3B-QcD" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="16" id="uSY-KS-3Qw"/>
+            </constraints>
+            <point key="canvasLocation" x="36.231884057971016" y="-11.383928571428571"/>
         </view>
     </objects>
     <resources>
+        <image name="Logo" width="240" height="240"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

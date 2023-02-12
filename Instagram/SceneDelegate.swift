@@ -39,8 +39,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       let rootNavigation = UINavigationController(rootViewController: mainTabBarController)
       window?.rootViewController = rootNavigation
     } else {
-//      let loginVC = LoginViewController()
-      let loginVC = DetailViewController()
+      let loginVC = LoginViewController()
+//      let loginVC = DetailViewController()
       let authNavigation = UINavigationController(rootViewController: loginVC)
       window?.rootViewController = authNavigation
     }
