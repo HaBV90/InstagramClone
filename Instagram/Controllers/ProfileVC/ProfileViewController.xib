@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Instagram" customModuleProvider="target">
             <connections>
+                <outlet property="signOutButton" destination="g0M-HV-UNm" id="7ac-n7-AeV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="hFf-U6-DTL"/>
             </connections>
         </placeholder>
@@ -208,6 +209,9 @@
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Log Out"/>
+                                            <connections>
+                                                <action selector="handleLogOut:" destination="-1" eventType="touchUpInside" id="cv2-5e-SFc"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </stackView>

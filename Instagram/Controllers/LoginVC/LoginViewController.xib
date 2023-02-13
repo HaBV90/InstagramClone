@@ -13,6 +13,7 @@
                 <outlet property="forgotPasswordBtn" destination="57j-ff-LNB" id="cni-jX-MnZ"/>
                 <outlet property="loginButton" destination="9hY-jn-sGB" id="0ZU-ar-Jw8"/>
                 <outlet property="passwordView" destination="j51-wR-NRM" id="g6s-jQ-07i"/>
+                <outlet property="skipButton" destination="INo-70-dei" id="ULz-fS-Mxp"/>
                 <outlet property="textView" destination="UmU-2R-KRZ" id="ZFE-Fl-AyQ"/>
                 <outlet property="titleLabel" destination="kZF-5P-7bV" id="cbM-iv-bnI"/>
                 <outlet property="usernameView" destination="QTs-UM-Zlf" id="IZr-RA-qb1"/>
@@ -24,100 +25,130 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HR5-SH-bfD">
-                    <rect key="frame" x="16" y="80" width="382" height="195"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nJf-Hq-9ud" userLabel="Content View">
+                    <rect key="frame" x="16" y="48" width="382" height="814"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-5P-7bV">
-                            <rect key="frame" x="131.5" y="0.0" width="119" height="115"/>
-                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="FQP-La-QnI">
-                            <rect key="frame" x="159" y="131" width="64" height="64"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="HR5-SH-bfD" userLabel="Top View">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="422"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZF-5P-7bV">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="166"/>
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="FQP-La-QnI">
+                                    <rect key="frame" x="0.0" y="182" width="382" height="240"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="240" id="8Eb-ag-bVZ"/>
+                                        <constraint firstAttribute="height" constant="240" id="d4D-b0-Qbr"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
                             <constraints>
-                                <constraint firstAttribute="width" constant="64" id="7Kd-UE-d1m"/>
-                                <constraint firstAttribute="height" constant="64" id="ULG-VF-bUt"/>
+                                <constraint firstItem="FQP-La-QnI" firstAttribute="centerX" secondItem="HR5-SH-bfD" secondAttribute="centerX" id="8zt-Pb-806"/>
+                                <constraint firstItem="kZF-5P-7bV" firstAttribute="centerX" secondItem="HR5-SH-bfD" secondAttribute="centerX" id="Voc-no-8hh"/>
+                                <constraint firstItem="FQP-La-QnI" firstAttribute="top" secondItem="kZF-5P-7bV" secondAttribute="bottom" constant="16" id="Y2F-Sq-p5V"/>
                             </constraints>
-                        </imageView>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g7y-lm-GFd" userLabel="Middle View">
+                            <rect key="frame" x="0.0" y="438" width="382" height="200"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTs-UM-Zlf" customClass="AppTextField" customModule="Instagram" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="MKT-lj-XDw"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j51-wR-NRM" customClass="AppTextField" customModule="Instagram" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="72" width="382" height="56"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="eg4-by-TXz"/>
+                                    </constraints>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57j-ff-LNB" userLabel="Forgot Button">
+                                    <rect key="frame" x="0.0" y="144" width="382" height="56"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="56" id="fvD-Go-m8J"/>
+                                    </constraints>
+                                    <buttonConfiguration key="configuration" style="plain" title="Forgot password?"/>
+                                    <connections>
+                                        <action selector="handleForgotPasswordPressed:" destination="-1" eventType="touchUpInside" id="6zl-Bw-5dR"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VB0-Hx-Qju" userLabel="Bottom View">
+                            <rect key="frame" x="0.0" y="654" width="382" height="160"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mF1-yd-55G">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="128"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hY-jn-sGB">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="56" id="2oh-QP-DyA"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Login" cornerStyle="capsule" titleAlignment="center">
+                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="handleLoginPressed:" destination="-1" eventType="touchUpInside" id="P9L-Z6-lQ7"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INo-70-dei">
+                                            <rect key="frame" x="0.0" y="72" width="382" height="56"/>
+                                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="56" id="zJZ-Q6-uSW"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Skip" cornerStyle="capsule" titleAlignment="center">
+                                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="handleSkipPressed:" destination="-1" eventType="touchUpInside" id="jY6-0w-FHx"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Don't have an account? Sign Up." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UmU-2R-KRZ">
+                                    <rect key="frame" x="0.0" y="128" width="382" height="32"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="cR3-iU-bUS"/>
+                                    </constraints>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="UmU-2R-KRZ" secondAttribute="bottom" id="qDX-uP-4TZ"/>
+                            </constraints>
+                        </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="FQP-La-QnI" firstAttribute="top" secondItem="kZF-5P-7bV" secondAttribute="bottom" constant="16" id="jsh-3L-ebK"/>
+                        <constraint firstItem="HR5-SH-bfD" firstAttribute="centerX" secondItem="nJf-Hq-9ud" secondAttribute="centerX" id="Cft-Un-p7b"/>
+                        <constraint firstAttribute="trailing" secondItem="HR5-SH-bfD" secondAttribute="trailing" id="QHI-n8-cXh"/>
+                        <constraint firstItem="HR5-SH-bfD" firstAttribute="leading" secondItem="nJf-Hq-9ud" secondAttribute="leading" id="RUo-Iw-Rcb"/>
+                        <constraint firstItem="g7y-lm-GFd" firstAttribute="top" secondItem="HR5-SH-bfD" secondAttribute="bottom" constant="16" id="asq-FG-N1f"/>
+                        <constraint firstItem="HR5-SH-bfD" firstAttribute="top" secondItem="nJf-Hq-9ud" secondAttribute="top" id="x6z-mI-cgS"/>
                     </constraints>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="g7y-lm-GFd" userLabel="Field Stack View">
-                    <rect key="frame" x="16" y="323" width="382" height="182"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTs-UM-Zlf" customClass="AppTextField" customModule="Instagram" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Knt-2P-yNf"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j51-wR-NRM" customClass="AppTextField" customModule="Instagram" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="66" width="382" height="50"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="e5D-9u-86V"/>
-                            </constraints>
-                        </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57j-ff-LNB" userLabel="Forgot Button">
-                            <rect key="frame" x="0.0" y="132" width="382" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="Tio-a3-P4l"/>
-                            </constraints>
-                            <buttonConfiguration key="configuration" style="plain" title="Forgot password?"/>
-                            <connections>
-                                <action selector="handleForgotPasswordPressed:" destination="-1" eventType="touchUpInside" id="6zl-Bw-5dR"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="253" translatesAutoresizingMaskIntoConstraints="NO" id="VB0-Hx-Qju">
-                    <rect key="frame" x="16" y="521" width="382" height="341"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hY-jn-sGB">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="56"/>
-                            <color key="backgroundColor" systemColor="systemBlueColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="56" id="jg2-9f-MvT"/>
-                            </constraints>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Login" cornerStyle="capsule" titleAlignment="center">
-                                <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </buttonConfiguration>
-                            <connections>
-                                <action selector="handleLoginPressed:" destination="-1" eventType="touchUpInside" id="P9L-Z6-lQ7"/>
-                            </connections>
-                        </button>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Don't have an account? Sign Up." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UmU-2R-KRZ">
-                            <rect key="frame" x="0.0" y="309" width="382" height="32"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="32" id="gaC-Ka-TFV"/>
-                            </constraints>
-                            <color key="textColor" systemColor="labelColor"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                    </subviews>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="HR5-SH-bfD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2Cs-Ry-peN"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="g7y-lm-GFd" secondAttribute="trailing" constant="16" id="M2l-Zi-V7v"/>
-                <constraint firstItem="g7y-lm-GFd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="N2p-Tf-eFT"/>
-                <constraint firstItem="HR5-SH-bfD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="O2w-m5-eZa"/>
-                <constraint firstItem="g7y-lm-GFd" firstAttribute="top" secondItem="HR5-SH-bfD" secondAttribute="bottom" constant="48" id="Qcn-76-Z1U"/>
-                <constraint firstItem="HR5-SH-bfD" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="W7p-FV-6sY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HR5-SH-bfD" secondAttribute="trailing" constant="16" id="a50-JV-wpZ"/>
-                <constraint firstItem="VB0-Hx-Qju" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="dbv-qT-ih1"/>
-                <constraint firstItem="VB0-Hx-Qju" firstAttribute="top" secondItem="g7y-lm-GFd" secondAttribute="bottom" constant="16" id="eCL-Gv-zoF"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VB0-Hx-Qju" secondAttribute="trailing" constant="16" id="eqF-B9-cX5"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VB0-Hx-Qju" secondAttribute="bottom" id="ggl-YB-Oi1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nJf-Hq-9ud" secondAttribute="bottom" id="537-aY-NBu"/>
+                <constraint firstItem="nJf-Hq-9ud" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Gid-ki-fCm"/>
+                <constraint firstItem="nJf-Hq-9ud" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ODl-RY-fGj"/>
+                <constraint firstItem="nJf-Hq-9ud" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="mgJ-u4-tPk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nJf-Hq-9ud" secondAttribute="trailing" constant="16" id="oaI-Xn-8Yo"/>
             </constraints>
             <point key="canvasLocation" x="17.39130434782609" y="-11.383928571428571"/>
         </view>

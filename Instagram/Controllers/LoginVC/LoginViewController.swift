@@ -8,10 +8,11 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-  
+  public var isLogIn: Bool = false
   
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var loginButton: UIButton!
+  @IBOutlet weak var skipButton: UIButton!
   @IBOutlet weak var usernameView: AppTextField!
   @IBOutlet weak var passwordView: AppTextField!
   @IBOutlet weak var forgotPasswordBtn: UIButton!
@@ -30,7 +31,7 @@ class LoginViewController: UIViewController {
     passwordView.showButton.setImage(UIImage(systemName: "eye"), for: .normal)
     
     loginButton.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: loginButton.tintColor.cgColor)
-    //    loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+    skipButton.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: skipButton.tintColor.cgColor)
     
     let mutableAttributedString = NSMutableAttributedString(string: "Don't have an account? Sign Up.")
     mutableAttributedString.setAsLink(textToFind: "Sign Up.", linkName: "signUp")
@@ -52,10 +53,16 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func handleLoginPressed(_ sender: UIButton) {
+    isLogIn = true
     let rootVC = TabBarViewController()
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
   }
   
+  @IBAction func handleSkipPressed(_ sender: UIButton) {
+    isLogIn = false
+    let rootVC = TabBarViewController()
+    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
+  }
 }
 
 extension LoginViewController:  UITextViewDelegate {
