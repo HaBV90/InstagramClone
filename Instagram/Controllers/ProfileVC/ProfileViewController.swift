@@ -9,6 +9,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
   @IBOutlet weak var signOutButton: UIButton!
+  let defaults = UserDefaults.standard
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -16,6 +17,7 @@ class ProfileViewController: UIViewController {
   
   @IBAction func handleLogOut(_ sender: UIButton) {
     let loginVC = LoginViewController()
+    defaults.set(false, forKey: "isLogged")
     let authNavigation = UINavigationController(rootViewController: loginVC)
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(authNavigation)
   }

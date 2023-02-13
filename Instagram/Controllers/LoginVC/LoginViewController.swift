@@ -8,7 +8,6 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-  public var isLogIn: Bool = false
   
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var loginButton: UIButton!
@@ -53,13 +52,16 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func handleLoginPressed(_ sender: UIButton) {
-    isLogIn = true
+    let defaults = UserDefaults.standard
+    defaults.set(true, forKey: "isLogged")
+    
     let rootVC = TabBarViewController()
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
   }
   
   @IBAction func handleSkipPressed(_ sender: UIButton) {
-    isLogIn = false
+    let defaults = UserDefaults.standard
+    defaults.set(false, forKey: "isLogged")
     let rootVC = TabBarViewController()
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
   }

@@ -9,10 +9,13 @@ import UIKit
 
 class HomeViewController: UIViewController {
   
+  let defaults = UserDefaults.standard
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     let button = UIButton()
+    let logOutButton = UIButton()
     let label = UILabel()
     
     label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
@@ -29,8 +32,17 @@ class HomeViewController: UIViewController {
     button.layer.cornerRadius = 8
     button.center = CGPointMake(label.center.x, label.center.y + label.frame.size.height)
     
+    logOutButton.setTitle("Log Out", for: .normal)
+    logOutButton.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
+    logOutButton.setTitleColor(.white, for: .normal)
+    logOutButton.backgroundColor = .systemBlue
+    logOutButton.addTarget(self, action: #selector(handleLogOut), for: .touchUpInside)
+    logOutButton.layer.cornerRadius = 8
+    logOutButton.center = CGPointMake(label.center.x, label.center.y + label.frame.size.height + button.frame.size.height + 16)
+    
     self.view.addSubview(label)
     self.view.addSubview(button)
+    self.view.addSubview(logOutButton)
   }
   
   @objc func handlePressed(sender: UIButton!) {
@@ -39,6 +51,13 @@ class HomeViewController: UIViewController {
     homeDetailVC.navigationController?.navigationBar.backgroundColor = .white
     
     navigationController?.pushViewController(homeDetailVC, animated: true)
+  }
+  
+  @objc func handleLogOut(_ sender: UIButton) {
+    let loginVC = LoginViewController()
+    defaults.set(false, forKey: "isLogged")
+    let authNavigation = UINavigationController(rootViewController: loginVC)
+    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(authNavigation)
   }
   
 }

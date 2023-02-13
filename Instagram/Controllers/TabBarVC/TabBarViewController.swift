@@ -8,30 +8,26 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-  
+  let defaults = UserDefaults.standard
   override func viewDidLoad() {
     super.viewDidLoad()
     self.delegate = self
     let homeVC = createTabBarItem(tabBarTitle: "Home", tabBarImage: "house.fill", viewController: HomeViewController(), tabBarTag: 0)
-    let searchVC = createTabBarItem(tabBarTitle: "Search", tabBarImage: "magnifyingglass", viewController: HomeViewController(), tabBarTag: 0)
+    let searchVC = createTabBarItem(tabBarTitle: "Search", tabBarImage: "magnifyingglass", viewController: SearchViewController(), tabBarTag: 0)
     let messagesVC = createTabBarItem(tabBarTitle: "Messages", tabBarImage: "message", viewController: MessagesViewController(), tabBarTag: 2)
     let notificationsVC = createTabBarItem(tabBarTitle: "Notifications", tabBarImage: "bell.fill", viewController: NotificationsViewController(), tabBarTag: 3)
     let profileVC = createTabBarItem(tabBarTitle: "Profile", tabBarImage: "person.circle", viewController: ProfileViewController(), tabBarTag: 4)
-    
+
     let mainVC = [homeVC, searchVC, messagesVC, notificationsVC, profileVC]
     let skipVC = [homeVC, searchVC, notificationsVC]
     
     configurationTabBar()
     
-    viewControllers = self.isLogIn ? mainVC : skipVC
+    let isLogged = defaults.bool(forKey: "isLogged")
     
-//    viewControllers = [
-//      createTabBarItem(tabBarTitle: "Home", tabBarImage: "house.fill", viewController: HomeViewController(), tabBarTag: 0),
-//      createTabBarItem(tabBarTitle: "Search", tabBarImage: "magnifyingglass", viewController: SearchViewController(), tabBarTag: 1),
-//      createTabBarItem(tabBarTitle: "Messages", tabBarImage: "message", viewController: MessagesViewController(), tabBarTag: 2),
-//      createTabBarItem(tabBarTitle: "Notifications", tabBarImage: "bell.fill", viewController: NotificationsViewController(), tabBarTag: 3),
-//      createTabBarItem(tabBarTitle: "Profile", tabBarImage: "person.circle", viewController: ProfileViewController(), tabBarTag: 4)
-//    ]
+    print("isLogged -> \(isLogged)")
+    
+    viewControllers = isLogged ? mainVC : skipVC
   }
   
   func configurationTabBar() {
