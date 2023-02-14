@@ -46,14 +46,13 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func handleForgotPasswordPressed(_ sender: UIButton) {
-    print("Forgot password pressed")
     let forgotVC = UIViewController(nibName: "ForgotPasswordViewController", bundle: nil)
     self.navigationController?.pushViewController(forgotVC, animated: true)
   }
   
   @IBAction func handleLoginPressed(_ sender: UIButton) {
     let defaults = UserDefaults.standard
-    defaults.set(true, forKey: "isLogged")
+    defaults.set(true, forKey: K.IsLogged)
     
     let rootVC = TabBarViewController()
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
@@ -61,7 +60,7 @@ class LoginViewController: UIViewController {
   
   @IBAction func handleSkipPressed(_ sender: UIButton) {
     let defaults = UserDefaults.standard
-    defaults.set(false, forKey: "isLogged")
+    defaults.set(false, forKey: K.IsLogged)
     let rootVC = TabBarViewController()
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
   }

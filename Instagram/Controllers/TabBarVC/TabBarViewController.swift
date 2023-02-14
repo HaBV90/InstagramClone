@@ -9,6 +9,7 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
   let defaults = UserDefaults.standard
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.delegate = self
@@ -23,9 +24,7 @@ class TabBarViewController: UITabBarController {
     
     configurationTabBar()
     
-    let isLogged = defaults.bool(forKey: "isLogged")
-    
-    print("isLogged -> \(isLogged)")
+    let isLogged = defaults.bool(forKey: K.IsLogged)
     
     viewControllers = isLogged ? mainVC : skipVC
   }

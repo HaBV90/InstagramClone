@@ -55,7 +55,7 @@ class HomeViewController: UIViewController {
   
   @objc func handleLogOut(_ sender: UIButton) {
     let loginVC = LoginViewController()
-    defaults.set(false, forKey: "isLogged")
+    defaults.set(false, forKey: K.IsLogged)
     let authNavigation = UINavigationController(rootViewController: loginVC)
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(authNavigation)
   }

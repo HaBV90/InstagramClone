@@ -10,6 +10,8 @@ import UIKit
 class NotificationsViewController: UIViewController {
   
   @IBOutlet weak var notificationsTableView: UITableView!
+  var headerView: CustomHeaderView!
+  var headerHeightConstraint: NSLayoutConstraint!
   
   var notifications: [Notification] = [
     Notification(avatar: "person", data: "Test Notification 1 Test Notification 1 Test Notification 1 Test Notification 1 Test Notification 1 Test Notification 1 Test Notification 1 Test Notification 1 Test Notification 1 Test Notification 1", follow: false, read: false),
@@ -41,7 +43,32 @@ class NotificationsViewController: UIViewController {
     notificationsTableView.register(UINib(nibName: "NotificationCell", bundle: nil), forCellReuseIdentifier: "ReusableNotification")
     notificationsTableView.estimatedRowHeight = 60
     notificationsTableView.rowHeight = UITableView.automaticDimension
+    setupHeader()
   }
+  
+  func setupHeader() {
+    headerView = CustomHeaderView()
+    headerView.title = "Test Header"
+    headerView.translatesAutoresizingMaskIntoConstraints = false
+    view.addSubview(headerView)
+    
+    headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: 150)
+    headerHeightConstraint.isActive = true
+    
+    let constraints:[NSLayoutConstraint] = [
+      headerView.topAnchor.constraint(equalTo: view.topAnchor),
+      headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+    ]
+    NSLayoutConstraint.activate(constraints)
+  }
+  func animateHeader() {
+    self.headerHeightConstraint.constant = 150
+    UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+      self.view.layoutIfNeeded()
+    }, completion: nil)
+  }
+  
 }
 
 extension NotificationsViewController: UITableViewDataSource {
@@ -63,39 +90,43 @@ extension NotificationsViewController: UITableViewDataSource {
     return cell
   }
   
-  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 54
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
   }
   
-  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 54))
-    headerView.backgroundColor = .systemTeal
-    let label = UILabel()
-    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
-    label.center = headerView.center
-    label.textAlignment = .center
-    label.text = "Header Test"
-    label.textColor = .white
-    headerView.addSubview(label)
-    return headerView
-  }
+  //  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+  //    return 54
+  //  }
+  //
+  //  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+  //    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 54))
+  //    headerView.backgroundColor = .systemTeal
+  //    let label = UILabel()
+  //    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
+  //    label.center = headerView.center
+  //    label.textAlignment = .center
+  //    label.text = "Header Test"
+  //    label.textColor = .white
+  //    headerView.addSubview(label)
+  //    return headerView
+  //  }
+  //
+  //  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+  //    return 54
+  //  }
   
-  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    return 54
-  }
-  
-  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-    let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 54))
-    footerView.backgroundColor = .systemGreen
-    let label = UILabel()
-    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
-    label.center = footerView.center
-    label.textAlignment = .center
-    label.text = "Footer Test"
-    label.textColor = .white
-    footerView.addSubview(label)
-    return footerView
-  }
+  //  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+  //    let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 54))
+  //    footerView.backgroundColor = .systemGreen
+  //    let label = UILabel()
+  //    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
+  //    label.center = footerView.center
+  //    label.textAlignment = .center
+  //    label.text = "Footer Test"
+  //    label.textColor = .white
+  //    footerView.addSubview(label)
+  //    return footerView
+  //  }
 }
 
 extension NotificationsViewController: UITableViewDelegate {
@@ -103,6 +134,36 @@ extension NotificationsViewController: UITableViewDelegate {
     let cell = tableView.cellForRow(at: indexPath) as! NotificationCell
     if let titleText = cell.contentLabel.text {
       print("content cell -> \(titleText)")
+    }
+  }
+}
+extension NotificationsViewController: UIScrollViewDelegate {
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    if scrollView.contentOffset.y < 0 {
+      self.headerHeightConstraint.constant += abs(scrollView.contentOffset.y)
+      headerView.incrementColorAlpha(offset: self.headerHeightConstraint.constant)
+      headerView.incrementArticleAlpha(offset: self.headerHeightConstraint.constant)
+    } else if scrollView.contentOffset.y > 0 && self.headerHeightConstraint.constant >= 65 {
+      self.headerHeightConstraint.constant -= scrollView.contentOffset.y/100
+      headerView.decrementColorAlpha(offset: scrollView.contentOffset.y)
+      headerView.decrementArticleAlpha(offset: self.headerHeightConstraint.constant)
+      
+      if self.headerHeightConstraint.constant < 65 {
+        self.headerHeightConstraint.constant = 65
+      }
+    }
+  }
+  
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    if self.headerHeightConstraint.constant > 150 {
+      animateHeader()
+    }
+  }
+  
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    if self.headerHeightConstraint.constant > 150 {
+      animateHeader()
     }
   }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct K {
+  static let IsLogged = "IsLogged"
   static let homeDetailSegue = "HomeToDetail"
   static let notificationIdentifier = "ReusableNotification"
 }
