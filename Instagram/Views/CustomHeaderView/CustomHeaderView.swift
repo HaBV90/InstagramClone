@@ -7,59 +7,64 @@
 
 import UIKit
 
+struct CustomHeaderViewModel {
+  var title: String
+  var iconName: String?
+  var titleColor: UIColor?
+  var iconColor: UIColor?
+  var bgColor: UIColor?
+}
 
 class CustomHeaderView: UIView {
   
+  private var viewModel: CustomHeaderViewModel?
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet var colorView: UIView!
   @IBOutlet weak var titleLabel: UILabel!
-  var bgColor = UIColor(red: 235/255, green: 96/255, blue: 91/255, alpha: 1)
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    setupViews()
+    self.viewModel = nil
   }
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
-    setupViews()
   }
   
-  func setupViews() {
-    colorView.backgroundColor = bgColor
-    colorView.alpha = 0.6
-  }
-  
-  var title: String? {
+  @IBInspectable var title: String? {
     get { return titleLabel?.text }
-    set { titleLabel?.text = newValue }
-  }
-  
-  func decrementColorAlpha(offset: CGFloat) {
-    if colorView.alpha <= 1 {
-      let alphaOffset = (offset/500)/85
-      self.colorView.alpha += alphaOffset
+    set {
+      titleLabel?.text = newValue
+      titleLabel?.textColor = .red
     }
   }
   
+  init(with viewModel: CustomHeaderViewModel) {
+    self.viewModel = viewModel
+    super.init(frame: .zero)
+    configuration(with: viewModel)
+  }
   
-  func decrementArticleAlpha(offset: CGFloat) {
-    if imageView.alpha >= 0 {
-      let alphaOffset = max((offset - 65)/85.0, 0)
-      self.imageView.alpha = alphaOffset
+  public func configuration(with viewModel: CustomHeaderViewModel) {
+    let myView = loadViewFromNib(with: "CustomHeaderView")
+    myView.frame = bounds
+    addSubview(myView)
+    
+    titleLabel?.text = viewModel.title
+    if let image = viewModel.iconName {
+      imageView?.image = UIImage(systemName: image)
     }
+    colorView?.backgroundColor = viewModel.bgColor
+    titleLabel?.textColor = viewModel.titleColor ?? .red
   }
-  func incrementColorAlpha(offset: CGFloat) {
-    if self.colorView!.alpha >= 0.6 {
-      let alphaOffset = (offset/200)/85
-      self.colorView.alpha -= alphaOffset
-    }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
   }
-  func incrementArticleAlpha(offset: CGFloat) {
-    if imageView.alpha <= 1 {
-      let alphaOffset = max((offset - 65)/85, 0)
-      self.imageView.alpha = alphaOffset
-    }
+  
+  private func loadViewFromNib(with nibName: String) -> UIView {
+    let nibView = UINib(nibName: nibName, bundle: nil).instantiate(withOwner: self).first as! UIView
+    return nibView
   }
   
 }

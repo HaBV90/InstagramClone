@@ -42,10 +42,13 @@
 		8924A42C299378420013AB27 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924A42B299378420013AB27 /* Helpers.swift */; };
 		8924A43729939A960013AB27 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8924A43629939A960013AB27 /* Image.swift */; };
 		8946602E2992012000A97E8D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8946602D2992012000A97E8D /* NavigationController.swift */; };
+		895DF1FC299E0E79008F3544 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DF1FB299E0E79008F3544 /* TextField.swift */; };
+		895DF1FF299E1B6C008F3544 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895DF1FE299E1B6C008F3544 /* SeparatorView.swift */; };
 		898BFEE6298BCA3D00051FB3 /* AppTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898BFEE4298BCA3D00051FB3 /* AppTextField.swift */; };
 		898BFEE7298BCA3D00051FB3 /* AppTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 898BFEE5298BCA3D00051FB3 /* AppTextField.xib */; };
 		899DF0F5299B6C6F0002AD94 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899DF0F4299B6C6F0002AD94 /* CustomHeaderView.swift */; };
 		899DF0F7299B6C7A0002AD94 /* CustomHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 899DF0F6299B6C7A0002AD94 /* CustomHeaderView.xib */; };
+		89B48015299DCA9E0064EEB4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B48014299DCA9E0064EEB4 /* LoadingViewController.swift */; };
 		89CD669829924D6B00661A55 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD669729924D6B00661A55 /* CustomButton.swift */; };
 		89CD669C299256E900661A55 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD669A299256E900661A55 /* DetailViewController.swift */; };
 		89CD669D299256E900661A55 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CD669B299256E900661A55 /* DetailViewController.xib */; };
@@ -108,10 +111,13 @@
 		8924A42B299378420013AB27 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8924A43629939A960013AB27 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8946602D2992012000A97E8D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		895DF1FB299E0E79008F3544 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		895DF1FE299E1B6C008F3544 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		898BFEE4298BCA3D00051FB3 /* AppTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTextField.swift; sourceTree = "<group>"; };
 		898BFEE5298BCA3D00051FB3 /* AppTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppTextField.xib; sourceTree = "<group>"; };
 		899DF0F4299B6C6F0002AD94 /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		899DF0F6299B6C7A0002AD94 /* CustomHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderView.xib; sourceTree = "<group>"; };
+		89B48014299DCA9E0064EEB4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		89CD669729924D6B00661A55 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		89CD669A299256E900661A55 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89CD669B299256E900661A55 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 		89186A0D2988CAED00B49190 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				89E140BB299CE7600035013E /* Extensions */,
 				8946602C299200FF00A97E8D /* Utils */,
 				89186A682989055D00B49190 /* Constants.swift */,
 				89186A72298A1DA600B49190 /* Models */,
@@ -208,6 +215,7 @@
 		89186A462988CC8300B49190 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				89B48013299DCA7A0064EEB4 /* LoadingVC */,
 				8918C9CA29961BCC009E6E82 /* ForgotVC */,
 				8918C9C929961BC3009E6E82 /* RegisterVC */,
 				89CD6699299256D100661A55 /* DetailVC */,
@@ -280,6 +288,7 @@
 		89186A6A298A0DD500B49190 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				895DF1FD299E1B4B008F3544 /* Separator */,
 				899DF0F3299B6C560002AD94 /* CustomHeaderView */,
 				8918C9C62995F452009E6E82 /* TextView */,
 				89CD669629924D5200661A55 /* CustomButton */,
@@ -351,6 +360,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		895DF1FD299E1B4B008F3544 /* Separator */ = {
+			isa = PBXGroup;
+			children = (
+				895DF1FE299E1B6C008F3544 /* SeparatorView.swift */,
+			);
+			path = Separator;
+			sourceTree = "<group>";
+		};
 		898BFEE3298BC9D000051FB3 /* AppTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +386,14 @@
 			path = CustomHeaderView;
 			sourceTree = "<group>";
 		};
+		89B48013299DCA7A0064EEB4 /* LoadingVC */ = {
+			isa = PBXGroup;
+			children = (
+				89B48014299DCA9E0064EEB4 /* LoadingViewController.swift */,
+			);
+			path = LoadingVC;
+			sourceTree = "<group>";
+		};
 		89CD669629924D5200661A55 /* CustomButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,6 +409,14 @@
 				89CD669B299256E900661A55 /* DetailViewController.xib */,
 			);
 			path = DetailVC;
+			sourceTree = "<group>";
+		};
+		89E140BB299CE7600035013E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				895DF1FB299E0E79008F3544 /* TextField.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,6 +615,8 @@
 				8924A42C299378420013AB27 /* Helpers.swift in Sources */,
 				8918C9CD29961BE9009E6E82 /* ForgotPasswordViewController.swift in Sources */,
 				89186A602988EFF000B49190 /* SearchViewController.swift in Sources */,
+				89B48015299DCA9E0064EEB4 /* LoadingViewController.swift in Sources */,
+				895DF1FC299E0E79008F3544 /* TextField.swift in Sources */,
 				8918C9C82995F467009E6E82 /* TextView.swift in Sources */,
 				89186A192988CAED00B49190 /* Instagram.xcdatamodeld in Sources */,
 				89186A662989051000B49190 /* HomeDetailViewController.swift in Sources */,
@@ -594,6 +629,7 @@
 				89CD669C299256E900661A55 /* DetailViewController.swift in Sources */,
 				8918C9D129961BF7009E6E82 /* RegisterViewController.swift in Sources */,
 				89186A112988CAED00B49190 /* SceneDelegate.swift in Sources */,
+				895DF1FF299E1B6C008F3544 /* SeparatorView.swift in Sources */,
 				899DF0F5299B6C6F0002AD94 /* CustomHeaderView.swift in Sources */,
 				89186A71298A1DA000B49190 /* Notification.swift in Sources */,
 				89186A512988CD3200B49190 /* NotificationsViewController.swift in Sources */,

@@ -18,19 +18,19 @@ class NotificationCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    avatarImage.image = avatarImage.image?.imageWithInsets(UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
   }
   
   override func layoutSubviews() {
     followButton.layer.cornerRadius = 8
     followButton.titleLabel!.text = "Follow"
-    
+
     avatarImage.layer.borderWidth = 1
     avatarImage.layer.masksToBounds = true
     avatarImage.layer.borderColor = UIColor.red.cgColor
     avatarImage.layer.cornerRadius = avatarImage.frame.height / 2
     avatarImage.clipsToBounds = true
     avatarImage.contentMode = .scaleAspectFill
-//    avatarImage.image = avatarImage.image?.imageWithInsets(UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
   }
   
   @IBAction func onPressedFollow(_ sender: UIButton) {

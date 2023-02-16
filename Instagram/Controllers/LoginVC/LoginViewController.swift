@@ -12,8 +12,8 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var skipButton: UIButton!
-  @IBOutlet weak var usernameView: AppTextField!
-  @IBOutlet weak var passwordView: AppTextField!
+  @IBOutlet weak var usernameView: UITextField!
+  @IBOutlet weak var passwordView: UITextField!
   @IBOutlet weak var forgotPasswordBtn: UIButton!
   @IBOutlet var textView: UITextView!
   
@@ -24,10 +24,10 @@ class LoginViewController: UIViewController {
     usernameView.placeholder = "Username"
     usernameView.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
     
+    
     passwordView.placeholder = "Password"
+    passwordView.isSecureTextEntry = true
     passwordView.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
-    passwordView.setPasswordType = true
-    passwordView.showButton.setImage(UIImage(systemName: "eye"), for: .normal)
     
     loginButton.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: loginButton.tintColor.cgColor)
     skipButton.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: skipButton.tintColor.cgColor)
@@ -42,7 +42,6 @@ class LoginViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    
   }
   
   @IBAction func handleForgotPasswordPressed(_ sender: UIButton) {
@@ -54,8 +53,20 @@ class LoginViewController: UIViewController {
     let defaults = UserDefaults.standard
     defaults.set(true, forKey: K.IsLogged)
     
-    let rootVC = TabBarViewController()
-    (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
+    let loadingVC = LoadingViewController()
+    loadingVC.view.frame = view.frame
+    view.addSubview(loadingVC.view)
+    loadingVC.didMove(toParent: self)
+    // wait two seconds to simulate some work happening
+    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+      // then remove the spinner view controller
+      loadingVC.willMove(toParent: nil)
+      loadingVC.view.removeFromSuperview()
+      loadingVC.removeFromParent()
+      
+      let rootVC = TabBarViewController()
+      (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
+    }
   }
   
   @IBAction func handleSkipPressed(_ sender: UIButton) {
@@ -74,7 +85,7 @@ extension LoginViewController:  UITextViewDelegate {
       
       let registerVC = UIViewController(nibName: "RegisterViewController", bundle: nil)
       self.navigationController?.pushViewController(registerVC, animated: true)
-      //      return true
+      return true
     }
     return false
   }
