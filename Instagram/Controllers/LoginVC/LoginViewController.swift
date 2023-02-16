@@ -38,6 +38,7 @@ class LoginViewController: UIViewController {
     textView.textAlignment = .center
     textView.font = UIFont.systemFont(ofSize: 14)
     textView.alignTextVerticalBottomInContainer()
+    textView.isEditable = false
   }
   
   override func viewWillAppear(_ animated: Bool) {
