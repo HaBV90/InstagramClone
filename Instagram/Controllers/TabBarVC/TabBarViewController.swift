@@ -8,7 +8,7 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-  let defaults = UserDefaults.standard
+  let auth = AuthenticationModel.shared
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -24,7 +24,7 @@ class TabBarViewController: UITabBarController {
     
     configurationTabBar()
     
-    let isLogged = defaults.bool(forKey: K.IsLogged)
+    let isLogged = auth.isAuthentication
     
     viewControllers = isLogged ? mainVC : skipVC
   }

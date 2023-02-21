@@ -62,9 +62,9 @@ class CustomHeaderView: UIView {
     super.layoutSubviews()
   }
   
-  private func loadViewFromNib(with nibName: String) -> UIView {
-    let nibView = UINib(nibName: nibName, bundle: nil).instantiate(withOwner: self).first as! UIView
-    return nibView
-  }
+//  private func loadViewFromNib(with nibName: String) -> UIView {
+//    let nibView = UINib(nibName: nibName, bundle: nil).instantiate(withOwner: self).first as! UIView
+//    return nibView
+//  }
   
 }

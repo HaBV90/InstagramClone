@@ -73,7 +73,7 @@ class NotificationsViewController: UIViewController {
   }
   
   func setupHeader() {
-    headerView.configuration(with: CustomHeaderViewModel(title: "Sticky Header", iconName: "person", titleColor: UIColor.red, bgColor: .systemCyan))
+    headerView.configuration(with: CustomHeaderViewModel(title: "Sticky Header", iconName: "person", titleColor: UIColor.red, bgColor: .systemTeal))
     headerView.translatesAutoresizingMaskIntoConstraints = false
     self.headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: MAX_HEIGHT_HEADER)
     headerHeightConstraint.isActive = true

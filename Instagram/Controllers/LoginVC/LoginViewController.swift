@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
+  let auth = AuthenticationModel.shared
   
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var loginButton: UIButton!
   @IBOutlet weak var skipButton: UIButton!
-  @IBOutlet weak var usernameView: UITextField!
-  @IBOutlet weak var passwordView: UITextField!
+  @IBOutlet weak var usernameTextField: UITextField!
+  @IBOutlet weak var passwordTextField: UITextField!
   @IBOutlet weak var forgotPasswordBtn: UIButton!
   @IBOutlet var textView: UITextView!
   
@@ -21,13 +23,14 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     self.textView.delegate = self
     
-    usernameView.placeholder = "Username"
-    usernameView.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
+    usernameTextField.placeholder = "Username"
+    usernameTextField.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
+    usernameTextField.text = "abc@gmail.com"
+    passwordTextField.text = "123456"
     
-    
-    passwordView.placeholder = "Password"
-    passwordView.isSecureTextEntry = true
-    passwordView.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
+    passwordTextField.placeholder = "Password"
+    passwordTextField.isSecureTextEntry = true
+    passwordTextField.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: UIColor.lightGray.cgColor)
     
     loginButton.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: loginButton.tintColor.cgColor)
     skipButton.setOutline(cornerRadius: 8, borderWidth: 1, borderColor: skipButton.tintColor.cgColor)
@@ -39,6 +42,7 @@ class LoginViewController: UIViewController {
     textView.font = UIFont.systemFont(ofSize: 14)
     textView.alignTextVerticalBottomInContainer()
     textView.isEditable = false
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -46,33 +50,48 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func handleForgotPasswordPressed(_ sender: UIButton) {
-    let forgotVC = UIViewController(nibName: "ForgotPasswordViewController", bundle: nil)
+    let forgotVC = ForgotPasswordViewController()
     self.navigationController?.pushViewController(forgotVC, animated: true)
   }
   
   @IBAction func handleLoginPressed(_ sender: UIButton) {
-    let defaults = UserDefaults.standard
-    defaults.set(true, forKey: K.IsLogged)
-    
     let loadingVC = LoadingViewController()
     loadingVC.view.frame = view.frame
     view.addSubview(loadingVC.view)
     loadingVC.didMove(toParent: self)
-    // wait two seconds to simulate some work happening
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-      // then remove the spinner view controller
-      loadingVC.willMove(toParent: nil)
-      loadingVC.view.removeFromSuperview()
-      loadingVC.removeFromParent()
-      
-      let rootVC = TabBarViewController()
-      (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
+    if let email = usernameTextField.text, let password = passwordTextField.text {
+      Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+        guard let strongSelf = self else { return }
+        if let err = error {
+          print("login error -> \(err)")
+        } else {
+          DispatchQueue.main.async {
+            // then remove the spinner view controller
+            loadingVC.willMove(toParent: nil)
+            loadingVC.view.removeFromSuperview()
+            loadingVC.removeFromParent()
+            self?.auth.isAuthentication = true
+            let rootVC = TabBarViewController()
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
+          }
+        }
+      }
     }
+    
+    
+    //    // wait two seconds to simulate some work happening
+    //    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+    //      // then remove the spinner view controller
+    //      loadingVC.willMove(toParent: nil)
+    //      loadingVC.view.removeFromSuperview()
+    //      loadingVC.removeFromParent()
+    //
+    //      let rootVC = TabBarViewController()
+    //      (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
+    //    }
   }
   
   @IBAction func handleSkipPressed(_ sender: UIButton) {
-    let defaults = UserDefaults.standard
-    defaults.set(false, forKey: K.IsLogged)
     let rootVC = TabBarViewController()
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
   }
@@ -83,8 +102,7 @@ extension LoginViewController:  UITextViewDelegate {
     
     if URL.absoluteString == "signUp" {
       print("URL -->> \(URL)")
-      
-      let registerVC = UIViewController(nibName: "RegisterViewController", bundle: nil)
+      let registerVC = RegisterViewController()
       self.navigationController?.pushViewController(registerVC, animated: true)
       return true
     }

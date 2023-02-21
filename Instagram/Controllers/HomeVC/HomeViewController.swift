@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
   
-  let defaults = UserDefaults.standard
+  let auth = AuthenticationModel.shared
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -46,16 +46,14 @@ class HomeViewController: UIViewController {
   }
   
   @objc func handlePressed(sender: UIButton!) {
-    
     let homeDetailVC = HomeDetailViewController()
     homeDetailVC.navigationController?.navigationBar.backgroundColor = .white
-    
     navigationController?.pushViewController(homeDetailVC, animated: true)
   }
   
   @objc func handleLogOut(_ sender: UIButton) {
+    self.auth.isAuthentication = false
     let loginVC = LoginViewController()
-    defaults.set(false, forKey: K.IsLogged)
     let authNavigation = UINavigationController(rootViewController: loginVC)
     (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(authNavigation)
   }

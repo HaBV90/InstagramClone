@@ -11,6 +11,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   final var window: UIWindow?
   
+  let auth = AuthenticationModel.shared
+  
   func changeRootViewController(_ vc: UIViewController, animated: Bool = true) {
     guard let window = self.window else {
       return
@@ -34,13 +36,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     window?.windowScene = windowScene
     
-    if UserDefaults.standard.string(forKey: "username") != nil {
+    if auth.isAuthentication == true {
       let mainTabBarController = TabBarViewController()
       let rootNavigation = UINavigationController(rootViewController: mainTabBarController)
       window?.rootViewController = rootNavigation
     } else {
       let loginVC = LoginViewController()
-//      let loginVC = DetailViewController()
       let authNavigation = UINavigationController(rootViewController: loginVC)
       window?.rootViewController = authNavigation
     }
