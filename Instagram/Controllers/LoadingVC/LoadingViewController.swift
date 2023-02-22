@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class LoadingViewController: UIViewController {
   
   var loadingActivityIndicator: UIActivityIndicatorView = {
@@ -54,4 +55,61 @@ class LoadingViewController: UIViewController {
     )
     view.addSubview(loadingActivityIndicator)
   }
+}
+
+extension UIViewController {
+  func showSpinner(onView: UIView) {
+    let loadingActivityIndicator: UIActivityIndicatorView = {
+      let indicator = UIActivityIndicatorView()
+      indicator.style = .large
+      indicator.color = .red
+      // The indicator should be animating when
+      // the view appears.
+      indicator.startAnimating()
+      // Setting the autoresizing mask to flexible for all
+      // directions will keep the indicator in the center
+      // of the view and properly handle rotation.
+      indicator.autoresizingMask = [
+        .flexibleLeftMargin, .flexibleRightMargin,
+        .flexibleTopMargin, .flexibleBottomMargin
+      ]
+      return indicator
+    }()
+    
+    let blurEffectView: UIVisualEffectView = {
+      let blurEffect = UIBlurEffect(style: .light)
+      let blurEffectView = UIVisualEffectView(effect: blurEffect)
+      blurEffectView.alpha = 0.3
+      // Setting the autoresizing mask to flexible for
+      // width and height will ensure the blurEffectView
+      // is the same size as its parent view.
+      blurEffectView.autoresizingMask = [
+        .flexibleWidth, .flexibleHeight
+      ]
+      return blurEffectView
+    }()
+    
+    let spinnerView = UIView.init(frame: onView.bounds)
+    spinnerView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+    blurEffectView.frame = self.view.bounds
+    
+    DispatchQueue.main.async {
+      loadingActivityIndicator.center = self.view.center
+      spinnerView.insertSubview(blurEffectView, at: 0)
+      spinnerView.addSubview(loadingActivityIndicator)
+      onView.addSubview(spinnerView)
+    }
+    self.view.addSubview(spinnerView)
+  }
+  
+  func removeSpinner() {
+//    DispatchQueue.main.async {
+//      self.view.removeFromSuperview()
+//      self.view.willMove(toSuperview: nil)
+//      self.view = nil
+//    }
+    print("view.subviews -> \(self.view.subviews)")
+  }
+  
+  
 }

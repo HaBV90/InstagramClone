@@ -55,21 +55,16 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func handleLoginPressed(_ sender: UIButton) {
-    let loadingVC = LoadingViewController()
-    loadingVC.view.frame = view.frame
-    view.addSubview(loadingVC.view)
-    loadingVC.didMove(toParent: self)
+    self.showSpinner(onView: self.view)
+    
     if let email = usernameTextField.text, let password = passwordTextField.text {
       Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
         guard let strongSelf = self else { return }
+        strongSelf.removeSpinner()
         if let err = error {
           print("login error -> \(err)")
         } else {
           DispatchQueue.main.async {
-            // then remove the spinner view controller
-            loadingVC.willMove(toParent: nil)
-            loadingVC.view.removeFromSuperview()
-            loadingVC.removeFromParent()
             self?.auth.isAuthentication = true
             let rootVC = TabBarViewController()
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
@@ -77,18 +72,6 @@ class LoginViewController: UIViewController {
         }
       }
     }
-    
-    
-    //    // wait two seconds to simulate some work happening
-    //    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-    //      // then remove the spinner view controller
-    //      loadingVC.willMove(toParent: nil)
-    //      loadingVC.view.removeFromSuperview()
-    //      loadingVC.removeFromParent()
-    //
-    //      let rootVC = TabBarViewController()
-    //      (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
-    //    }
   }
   
   @IBAction func handleSkipPressed(_ sender: UIButton) {

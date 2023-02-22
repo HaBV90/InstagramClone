@@ -11,6 +11,9 @@
 		890CB822299F3610007CABE5 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890CB821299F3610007CABE5 /* View.swift */; };
 		890CB829299F6A42007CABE5 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890CB827299F6A42007CABE5 /* ForgotPasswordViewController.swift */; };
 		890CB82A299F6A42007CABE5 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 890CB828299F6A42007CABE5 /* ForgotPasswordViewController.xib */; };
+		8916031929A5BEE800926538 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916031829A5BEE800926538 /* Post.swift */; };
+		8916031B29A5BF7700926538 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916031A29A5BF7700926538 /* PostViewModel.swift */; };
+		8916031E29A5C0EC00926538 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8916031D29A5C0EC00926538 /* APIService.swift */; };
 		89186A0F2988CAED00B49190 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89186A0E2988CAED00B49190 /* AppDelegate.swift */; };
 		89186A112988CAED00B49190 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89186A102988CAED00B49190 /* SceneDelegate.swift */; };
 		89186A192988CAED00B49190 /* Instagram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89186A172988CAED00B49190 /* Instagram.xcdatamodeld */; };
@@ -53,6 +56,8 @@
 		89CD669829924D6B00661A55 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD669729924D6B00661A55 /* CustomButton.swift */; };
 		89CD669C299256E900661A55 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89CD669A299256E900661A55 /* DetailViewController.swift */; };
 		89CD669D299256E900661A55 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89CD669B299256E900661A55 /* DetailViewController.xib */; };
+		89DCCFA629A61CE900C59871 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DCCFA429A61CE900C59871 /* PostTableViewCell.swift */; };
+		89DCCFA729A61CE900C59871 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89DCCFA529A61CE900C59871 /* PostTableViewCell.xib */; };
 		89E2AA7829A38396002D72C7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2AA7629A38396002D72C7 /* RegisterViewController.swift */; };
 		89E2AA7929A38396002D72C7 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E2AA7729A38396002D72C7 /* RegisterViewController.xib */; };
 		8EB41B0FE0A0FEAEF1B6F5A3 /* Pods_Instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D71AED85B09A3C437925646D /* Pods_Instagram.framework */; };
@@ -85,6 +90,9 @@
 		890CB821299F3610007CABE5 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		890CB827299F6A42007CABE5 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		890CB828299F6A42007CABE5 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		8916031829A5BEE800926538 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8916031A29A5BF7700926538 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		8916031D29A5C0EC00926538 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		89186A0B2988CAED00B49190 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89186A0E2988CAED00B49190 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89186A102988CAED00B49190 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +139,8 @@
 		89CD669729924D6B00661A55 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		89CD669A299256E900661A55 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89CD669B299256E900661A55 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		89DCCFA429A61CE900C59871 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		89DCCFA529A61CE900C59871 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		89E2AA7629A38396002D72C7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		89E2AA7729A38396002D72C7 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		D02BCD7571767EC2200AE1DF /* Pods_InstagramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +200,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8916031C29A5C0D600926538 /* API Service */ = {
+			isa = PBXGroup;
+			children = (
+				8916031D29A5C0EC00926538 /* APIService.swift */,
+			);
+			path = "API Service";
+			sourceTree = "<group>";
+		};
 		89186A022988CAED00B49190 = {
 			isa = PBXGroup;
 			children = (
@@ -216,19 +234,20 @@
 			isa = PBXGroup;
 			children = (
 				898A92C929A33C270075AA10 /* GoogleService-Info.plist */,
-				89E140BB299CE7600035013E /* Extensions */,
-				8946602C299200FF00A97E8D /* Utils */,
-				89186A682989055D00B49190 /* Constants.swift */,
-				89186A6A298A0DD500B49190 /* Components */,
-				89620A5029A4D04A0006C106 /* ViewModels */,
-				89186A72298A1DA600B49190 /* Models */,
-				89186A462988CC8300B49190 /* Controllers */,
+				89186A1F2988CAEE00B49190 /* Info.plist */,
 				89186A0E2988CAED00B49190 /* AppDelegate.swift */,
+				89186A682989055D00B49190 /* Constants.swift */,
 				89186A102988CAED00B49190 /* SceneDelegate.swift */,
 				89186A1A2988CAEE00B49190 /* Assets.xcassets */,
-				89186A1C2988CAEE00B49190 /* LaunchScreen.storyboard */,
-				89186A1F2988CAEE00B49190 /* Info.plist */,
+				8916031C29A5C0D600926538 /* API Service */,
+				89186A6A298A0DD500B49190 /* Components */,
+				89186A462988CC8300B49190 /* Controllers */,
+				89E140BB299CE7600035013E /* Extensions */,
 				89186A172988CAED00B49190 /* Instagram.xcdatamodeld */,
+				89186A1C2988CAEE00B49190 /* LaunchScreen.storyboard */,
+				89186A72298A1DA600B49190 /* Models */,
+				8946602C299200FF00A97E8D /* Utils */,
+				89620A5029A4D04A0006C106 /* ViewModels */,
 			);
 			path = Instagram;
 			sourceTree = "<group>";
@@ -334,6 +353,7 @@
 		89186A6A298A0DD500B49190 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				89DCCFA329A61CB400C59871 /* PostTableViewCell */,
 				899DF0F3299B6C560002AD94 /* CustomHeaderView */,
 				8918C9C62995F452009E6E82 /* TextView */,
 				89CD669629924D5200661A55 /* CustomButton */,
@@ -357,6 +377,7 @@
 			children = (
 				89186A70298A1DA000B49190 /* Notification.swift */,
 				898A92CB29A34D680075AA10 /* Authentication.swift */,
+				8916031829A5BEE800926538 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,6 +421,7 @@
 		89620A5029A4D04A0006C106 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				8916031A29A5BF7700926538 /* PostViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -445,6 +467,15 @@
 				89CD669B299256E900661A55 /* DetailViewController.xib */,
 			);
 			path = DetailVC;
+			sourceTree = "<group>";
+		};
+		89DCCFA329A61CB400C59871 /* PostTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				89DCCFA429A61CE900C59871 /* PostTableViewCell.swift */,
+				89DCCFA529A61CE900C59871 /* PostTableViewCell.xib */,
+			);
+			path = PostTableViewCell;
 			sourceTree = "<group>";
 		};
 		89E140BB299CE7600035013E /* Extensions */ = {
@@ -586,6 +617,7 @@
 				890CB82A299F6A42007CABE5 /* ForgotPasswordViewController.xib in Resources */,
 				899DF0F7299B6C7A0002AD94 /* CustomHeaderView.xib in Resources */,
 				89186A572988CD5100B49190 /* MessagesViewController.xib in Resources */,
+				89DCCFA729A61CE900C59871 /* PostTableViewCell.xib in Resources */,
 				89186A612988EFF000B49190 /* SearchViewController.xib in Resources */,
 				89186A77298A5B8D00B49190 /* LoginViewController.xib in Resources */,
 				89186A522988CD3200B49190 /* NotificationsViewController.xib in Resources */,
@@ -717,6 +749,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8916031B29A5BF7700926538 /* PostViewModel.swift in Sources */,
 				89186A76298A5B8D00B49190 /* LoginViewController.swift in Sources */,
 				8924A42C299378420013AB27 /* Helpers.swift in Sources */,
 				89186A602988EFF000B49190 /* SearchViewController.swift in Sources */,
@@ -739,8 +772,11 @@
 				89186A71298A1DA000B49190 /* Notification.swift in Sources */,
 				89186A512988CD3200B49190 /* NotificationsViewController.swift in Sources */,
 				89186A5B2988CD6500B49190 /* ProfileViewController.swift in Sources */,
+				8916031929A5BEE800926538 /* Post.swift in Sources */,
 				89186A562988CD5100B49190 /* MessagesViewController.swift in Sources */,
 				89E2AA7829A38396002D72C7 /* RegisterViewController.swift in Sources */,
+				8916031E29A5C0EC00926538 /* APIService.swift in Sources */,
+				89DCCFA629A61CE900C59871 /* PostTableViewCell.swift in Sources */,
 				890CB829299F6A42007CABE5 /* ForgotPasswordViewController.swift in Sources */,
 				89186A4B2988CCBC00B49190 /* HomeViewController.swift in Sources */,
 				89186A692989055D00B49190 /* Constants.swift in Sources */,

@@ -107,36 +107,36 @@ extension NotificationsViewController: UITableViewDataSource {
     return cell
   }
   
-//  func numberOfSections(in tableView: UITableView) -> Int {
-//    return 2
-//
-//  }
-//
-//  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//    print("section heightForHeaderInSection -> \(section)")
-//    return 54
-//  }
-//
-//  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//    print("section viewForHeaderInSection -> \(section)")
-//
-//    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 54))
-//    headerView.backgroundColor = .systemTeal
-//    let label = UILabel()
-//    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
-//    label.center = headerView.center
-//    label.textAlignment = .center
-//
-//    label.textColor = .white
-//    headerView.addSubview(label)
-//
-//    if section == 0 {
-//      label.text = "Header 1"
-//    } else {
-//      label.text = "Header 2"
-//    }
-//    return headerView
-//  }
+  //  func numberOfSections(in tableView: UITableView) -> Int {
+  //    return 2
+  //
+  //  }
+  //
+  //  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+  //    print("section heightForHeaderInSection -> \(section)")
+  //    return 54
+  //  }
+  //
+  //  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+  //    print("section viewForHeaderInSection -> \(section)")
+  //
+  //    let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 54))
+  //    headerView.backgroundColor = .systemTeal
+  //    let label = UILabel()
+  //    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
+  //    label.center = headerView.center
+  //    label.textAlignment = .center
+  //
+  //    label.textColor = .white
+  //    headerView.addSubview(label)
+  //
+  //    if section == 0 {
+  //      label.text = "Header 1"
+  //    } else {
+  //      label.text = "Header 2"
+  //    }
+  //    return headerView
+  //  }
   
 }
 
@@ -150,32 +150,32 @@ extension NotificationsViewController: UITableViewDelegate {
 }
 extension NotificationsViewController: UIScrollViewDelegate {
   
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-      if scrollView.contentOffset.y < 0 {
-        headerView.backgroundColor = .blue
-  
-        //      self.headerView.heightAnchor.constraint(equalToConstant: HEIGHT_HEADER).isActive = true
-        self.headerHeightConstraint.constant += abs(scrollView.contentOffset.y)
-      } else if scrollView.contentOffset.y > 0 && self.headerHeightConstraint.constant >= HEIGHT_HEADER {
-        self.headerHeightConstraint.constant -= scrollView.contentOffset.y / 50
-        headerView.backgroundColor = .green
-  
-        if self.headerHeightConstraint.constant < HEIGHT_HEADER {
-          self.headerHeightConstraint.constant = HEIGHT_HEADER
-          headerView.backgroundColor = .red
-        }
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    if scrollView.contentOffset.y < 0 {
+      headerView.backgroundColor = .blue
+      
+      //      self.headerView.heightAnchor.constraint(equalToConstant: HEIGHT_HEADER).isActive = true
+      self.headerHeightConstraint.constant += abs(scrollView.contentOffset.y)
+    } else if scrollView.contentOffset.y > 0 && self.headerHeightConstraint.constant >= HEIGHT_HEADER {
+      self.headerHeightConstraint.constant -= scrollView.contentOffset.y / 50
+      headerView.backgroundColor = .green
+      
+      if self.headerHeightConstraint.constant < HEIGHT_HEADER {
+        self.headerHeightConstraint.constant = HEIGHT_HEADER
+        headerView.backgroundColor = .red
       }
     }
+  }
   
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-      if self.headerHeightConstraint.constant > MAX_HEIGHT_HEADER {
-        animateHeader()
-      }
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    if self.headerHeightConstraint.constant > MAX_HEIGHT_HEADER {
+      animateHeader()
     }
+  }
   
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-      if self.headerHeightConstraint.constant > MAX_HEIGHT_HEADER {
-        animateHeader()
-      }
+  func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    if self.headerHeightConstraint.constant > MAX_HEIGHT_HEADER {
+      animateHeader()
     }
+  }
 }
