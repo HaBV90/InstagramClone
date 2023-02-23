@@ -27,7 +27,7 @@ class PostViewModel: NSObject {
   
   func fetchPostsData() {
     self.apiService.getPostsData() { posts in
-      print("posts data -> \(posts)")
+//      print("posts data -> \(posts)")
       self.postsData = posts
     }
   }

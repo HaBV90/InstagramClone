@@ -24,15 +24,10 @@ class PostTableViewCell: UITableViewCell {
   }
   
   override func layoutSubviews() {
-//    cover.layer.cornerRadius = 8
-//    followButton.titleLabel!.text = "Follow"
-
-    coverImage.layer.borderWidth = 1
-    coverImage.layer.masksToBounds = true
-    coverImage.layer.borderColor = UIColor.red.cgColor
-    coverImage.layer.cornerRadius = 8
-    coverImage.clipsToBounds = true
-    coverImage.contentMode = .scaleAspectFill
+    moreButton.titleLabel?.text = ""
+    heartButton.titleLabel?.text = ""
+    messageButton.titleLabel?.text = ""
+    sendButton.titleLabel?.text = ""
   }
   
   @IBAction func onPressedFollow(_ sender: UIButton) {

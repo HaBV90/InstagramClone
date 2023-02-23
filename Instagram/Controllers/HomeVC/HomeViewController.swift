@@ -20,46 +20,11 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-//    let button = UIButton()
-//    let logOutButton = UIButton()
-//    let label = UILabel()
-//    
-//    label.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
-//    label.center = self.view.center
-//    label.textAlignment = .center
-//    label.text = "HomeScreen"
-//    label.textColor = .systemBlue
-//    
-//    button.setTitle("Demo Button", for: .normal)
-//    button.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
-//    button.setTitleColor(.white, for: .normal)
-//    button.backgroundColor = .systemBlue
-//    button.addTarget(self, action: #selector(handlePressed), for: .touchUpInside)
-//    button.layer.cornerRadius = 8
-//    button.center = CGPointMake(label.center.x, label.center.y + label.frame.size.height)
-//    
-//    logOutButton.setTitle("Log Out", for: .normal)
-//    logOutButton.frame = CGRect(x: 0, y: 0, width: 200, height: 48)
-//    logOutButton.setTitleColor(.white, for: .normal)
-//    logOutButton.backgroundColor = .systemBlue
-//    logOutButton.addTarget(self, action: #selector(handleLogOut), for: .touchUpInside)
-//    logOutButton.layer.cornerRadius = 8
-//    logOutButton.center = CGPointMake(label.center.x, label.center.y + label.frame.size.height + button.frame.size.height + 16)
-//    
-//    self.view.addSubview(label)
-//    self.view.addSubview(button)
-//    self.view.addSubview(logOutButton)
-    
+    self.navigationController?.navigationBar.isHidden = true
     tableView.dataSource = self
     tableView.delegate = self
-    tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "Post Table View Cell")
-    tableView.layoutIfNeeded()
-    tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16).isActive = true
-    tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 16).isActive = true
-    tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 16).isActive = true
-    tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-    
+    tableView.insetsLayoutMarginsFromSafeArea = false
+    tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
     callToViewModelForUIUpdate()
   }
   
@@ -84,10 +49,12 @@ class HomeViewController: UIViewController {
   }
   
   func callToViewModelForUIUpdate() {
-    self.showSpinner(onView: self.view)
+//    self.showSpinner(onView: self.view)
+    LoadingController.shared.showSpinner(onView: super.view)
     self.postViewModel = PostViewModel()
-    self.removeSpinner()
+    
     self.postViewModel.bindPostViewModelToController = {
+      LoadingController.shared.removeSpinner()
       self.posts = self.postViewModel.postsData
       self.updateDataSource()
     }
@@ -95,6 +62,8 @@ class HomeViewController: UIViewController {
   }
   
   func updateDataSource() {
+    print("Posts data -> \(posts)")
+    self.tableView.reloadData()
   }
   
 }
@@ -105,13 +74,13 @@ extension HomeViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let post = self.postViewModel.postsData[indexPath.row]
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Post Table View Cell", for: indexPath) as! PostTableViewCell
-    
-    
+    let post = self.posts[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostTableViewCell
+    print("post item -> \(post)")
+    cell.tag = Int(post.id)!
     cell.userLabel.text = post.name
-    cell.avatarImage.image = UIImage(systemName: "person")
-    cell.coverImage.image = UIImage(systemName: "person")
+    cell.avatarImage.imageFromURL(urlString: post.avatar)
+    cell.coverImage.imageFromURL(urlString: post.coverImage)
     return cell
   }
   
@@ -119,9 +88,5 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let cell = tableView.cellForRow(at: indexPath) as! NotificationCell
-    if let titleText = cell.contentLabel.text {
-      print("content cell -> \(titleText)")
-    }
   }
 }

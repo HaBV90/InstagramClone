@@ -14,12 +14,7 @@ class LoadingViewController: UIViewController {
     let indicator = UIActivityIndicatorView()
     indicator.style = .large
     indicator.color = .white
-    // The indicator should be animating when
-    // the view appears.
     indicator.startAnimating()
-    // Setting the autoresizing mask to flexible for all
-    // directions will keep the indicator in the center
-    // of the view and properly handle rotation.
     indicator.autoresizingMask = [
       .flexibleLeftMargin, .flexibleRightMargin,
       .flexibleTopMargin, .flexibleBottomMargin
@@ -31,9 +26,6 @@ class LoadingViewController: UIViewController {
     let blurEffect = UIBlurEffect(style: .light)
     let blurEffectView = UIVisualEffectView(effect: blurEffect)
     blurEffectView.alpha = 0.1
-    // Setting the autoresizing mask to flexible for
-    // width and height will ensure the blurEffectView
-    // is the same size as its parent view.
     blurEffectView.autoresizingMask = [
       .flexibleWidth, .flexibleHeight
     ]
@@ -43,12 +35,8 @@ class LoadingViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-    // Add the blurEffectView with the same
-    // size as view
     blurEffectView.frame = self.view.bounds
     view.insertSubview(blurEffectView, at: 0)
-    // Add the loadingActivityIndicator in the
-    // center of view
     loadingActivityIndicator.center = CGPoint(
       x: view.bounds.midX,
       y: view.bounds.midY
@@ -63,12 +51,7 @@ extension UIViewController {
       let indicator = UIActivityIndicatorView()
       indicator.style = .large
       indicator.color = .red
-      // The indicator should be animating when
-      // the view appears.
       indicator.startAnimating()
-      // Setting the autoresizing mask to flexible for all
-      // directions will keep the indicator in the center
-      // of the view and properly handle rotation.
       indicator.autoresizingMask = [
         .flexibleLeftMargin, .flexibleRightMargin,
         .flexibleTopMargin, .flexibleBottomMargin
@@ -80,9 +63,6 @@ extension UIViewController {
       let blurEffect = UIBlurEffect(style: .light)
       let blurEffectView = UIVisualEffectView(effect: blurEffect)
       blurEffectView.alpha = 0.3
-      // Setting the autoresizing mask to flexible for
-      // width and height will ensure the blurEffectView
-      // is the same size as its parent view.
       blurEffectView.autoresizingMask = [
         .flexibleWidth, .flexibleHeight
       ]
@@ -103,13 +83,53 @@ extension UIViewController {
   }
   
   func removeSpinner() {
-//    DispatchQueue.main.async {
-//      self.view.removeFromSuperview()
-//      self.view.willMove(toSuperview: nil)
-//      self.view = nil
-//    }
-    print("view.subviews -> \(self.view.subviews)")
+    DispatchQueue.main.async {
+      //      self.view.removeFromSuperview()
+      //      self.view.willMove(toSuperview: nil)
+      //      self.view = nil
+    }
+  }
+}
+
+public class LoadingController{
+  
+  var spinnerView = UIView()
+  var activityIndicator = UIActivityIndicatorView()
+  var blurEffectView: UIVisualEffectView = {
+    let blurEffect = UIBlurEffect(style: .light)
+    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+    blurEffectView.alpha = 0.3
+    blurEffectView.autoresizingMask = [
+      .flexibleWidth, .flexibleHeight
+    ]
+    return blurEffectView
+  }()
+  
+  class var shared: LoadingController {
+    struct Static {
+      static let instance: LoadingController = LoadingController()
+    }
+    return Static.instance
   }
   
-  
+  public func showSpinner(onView: UIView) {
+    spinnerView.frame = onView.bounds
+    spinnerView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+    
+    activityIndicator.style = .large
+    activityIndicator.color = .red
+    activityIndicator.startAnimating()
+    activityIndicator.autoresizingMask = [
+      .flexibleLeftMargin, .flexibleRightMargin,
+      .flexibleTopMargin, .flexibleBottomMargin
+    ]
+    activityIndicator.center = onView.center
+    
+    spinnerView.insertSubview(blurEffectView, at: 0)
+    spinnerView.addSubview(activityIndicator)
+    onView.addSubview(spinnerView)
+  }
+  public func removeSpinner() {
+    spinnerView.removeFromSuperview()
+  }
 }

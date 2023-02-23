@@ -55,17 +55,18 @@ class LoginViewController: UIViewController {
   }
   
   @IBAction func handleLoginPressed(_ sender: UIButton) {
-    self.showSpinner(onView: self.view)
-    
+//    self.showSpinner(onView: self.view)
+    LoadingController.shared.showSpinner(onView: self.view)
     if let email = usernameTextField.text, let password = passwordTextField.text {
       Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
         guard let strongSelf = self else { return }
-        strongSelf.removeSpinner()
+//        strongSelf.removeSpinner()
+        LoadingController.shared.removeSpinner()
         if let err = error {
           print("login error -> \(err)")
         } else {
           DispatchQueue.main.async {
-            self?.auth.isAuthentication = true
+            strongSelf.auth.isAuthentication = true
             let rootVC = TabBarViewController()
             (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(rootVC)
           }

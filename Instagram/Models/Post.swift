@@ -11,7 +11,7 @@ struct Post: Decodable {
   let id: String
   let avatar: String
   let name: String
-//  let createAt: String
+  let coverImage: String
 }
 
 struct Posts: Decodable {

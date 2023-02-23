@@ -21,10 +21,10 @@ class APIService :  NSObject {
           if let safeData = data {
             do {
               let results = try decoder.decode([Post].self, from: safeData)
-              print("results -> \(results)")
-              //                        DispatchQueue.main.async {
-              //                          completion(results.posts)
-              //                        }
+              //              print("results -> \(results)")
+              DispatchQueue.main.async {
+                completion(results)
+              }
               
             } catch {
               print("Error \(error)")
