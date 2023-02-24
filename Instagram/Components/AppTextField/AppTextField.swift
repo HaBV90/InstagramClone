@@ -149,12 +149,3 @@ extension AppTextField: UITextFieldDelegate {
     print("isPasswordType -->> \(appTextField.isSecureTextEntry)")
   }
 }
-
-extension AppTextField {
-  public func setOutline(cornerRadius: Double, borderWidth: Double, borderColor: CGColor) {
-    layer.cornerRadius = cornerRadius
-    layer.borderWidth = borderWidth
-    layer.borderColor = borderColor
-    layer.masksToBounds = true
-  }
-}

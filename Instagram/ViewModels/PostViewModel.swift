@@ -10,6 +10,9 @@ import Foundation
 class PostViewModel: NSObject {
   
   private var apiService: APIService!
+  private var page: Int = 0
+  private var size: Int = 10
+  private var loadMore: Bool = true
   
   private(set) var postsData : [Post]! {
     didSet {
@@ -27,8 +30,13 @@ class PostViewModel: NSObject {
   
   func fetchPostsData() {
     self.apiService.getPostsData() { posts in
-//      print("posts data -> \(posts)")
       self.postsData = posts
     }
   }
+  
+  /// Clear tableview data source
+  func clearTableView() {
+    self.page = 0
+  }
+  
 }

@@ -28,6 +28,13 @@ class PostTableViewCell: UITableViewCell {
     heartButton.titleLabel?.text = ""
     messageButton.titleLabel?.text = ""
     sendButton.titleLabel?.text = ""
+    
+    avatarImage.clipsToBounds = true
+    avatarImage.contentMode = .scaleToFill
+    avatarImage.setOutline(cornerRadius: Double(avatarImage.frame.height / 2), borderWidth: 1, borderColor: UIColor.systemBlue.cgColor)
+    
+    coverImage.backgroundColor = .systemBackground
+    
   }
   
   @IBAction func onPressedFollow(_ sender: UIButton) {
@@ -37,5 +44,5 @@ class PostTableViewCell: UITableViewCell {
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
   }
-    
+  
 }

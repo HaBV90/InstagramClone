@@ -5,15 +5,16 @@
 //  Created by HaBV on 16/02/2023.
 //
 
+import Foundation
 import UIKit
 
 extension UITextField {
-  public func setOutline(cornerRadius: Double, borderWidth: Double, borderColor: CGColor) {
-    layer.cornerRadius = cornerRadius
-    layer.borderWidth = borderWidth
-    layer.borderColor = borderColor
-    layer.masksToBounds = true
-  }
+//  public func setOutline(cornerRadius: Double, borderWidth: Double, borderColor: CGColor) {
+//    layer.cornerRadius = cornerRadius
+//    layer.borderWidth = borderWidth
+//    layer.borderColor = borderColor
+//    layer.masksToBounds = true
+//  }
   
   func addPaddingAndIcon(_ image: UIImage, padding: CGFloat,isLeftView: Bool) {
     let frame = CGRect(x: 0, y: 0, width: image.size.width + padding, height: image.size.height)

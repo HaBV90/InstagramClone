@@ -1,18 +1,12 @@
 //
-//  View.swift
+//  UILabelExtensions.swift
 //  Instagram
 //
-//  Created by HaBV on 17/02/2023.
+//  Created by HaBV on 24/02/2023.
 //
 
+import Foundation
 import UIKit
-
-extension UIView {
-  public func loadViewFromNib(with nibName: String) -> UIView {
-    let nibView = UINib(nibName: nibName, bundle: nil).instantiate(withOwner: self).first as! UIView
-    return nibView
-  }
-}
 
 extension UILabel {
   func drawLineOnBothSides(labelWidth: CGFloat, color: UIColor, height: CGFloat?) {

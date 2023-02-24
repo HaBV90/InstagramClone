@@ -9,7 +9,7 @@ import Foundation
 
 class APIService :  NSObject {
   
-  private let sourcesURL = URL(string: "https://63f5866c55677ef68bcf3d82.mockapi.io/api/")!
+  private let sourcesURL = URL(string: "https://63f5866c55677ef68bcf3d82.mockapi.io/api/")
   
   func getPostsData(completion : @escaping ([Post]) -> ()){
     if let url = URL(string: "https://63f5866c55677ef68bcf3d82.mockapi.io/api/posts") {

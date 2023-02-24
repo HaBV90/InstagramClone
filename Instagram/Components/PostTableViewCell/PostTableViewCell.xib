@@ -25,14 +25,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="700" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rA0-vM-kWx">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="UgL-jM-GwE"/>
-                                            <constraint firstAttribute="width" constant="24" id="odB-7A-6gc"/>
+                                            <constraint firstAttribute="height" constant="48" id="UgL-jM-GwE"/>
+                                            <constraint firstAttribute="width" constant="48" id="odB-7A-6gc"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyw-aQ-o85">
-                                        <rect key="frame" x="32" y="0.0" width="612.33333333333337" height="50"/>
+                                        <rect key="frame" x="56" y="0.0" width="588.33333333333337" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -44,8 +44,9 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="keyboard" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-SK-uxs">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-SK-uxs">
                                 <rect key="frame" x="0.0" y="58" width="700" height="200"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="b2A-Cw-Hh7"/>
                                 </constraints>
@@ -106,7 +107,6 @@
     <resources>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="heart" catalog="system" width="128" height="107"/>
-        <image name="keyboard" width="1024" height="768"/>
         <image name="message" catalog="system" width="128" height="116"/>
         <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
